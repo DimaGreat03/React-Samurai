@@ -1,20 +1,42 @@
-.App {
-  text-align: center;
-  color: YELLOW;
-  list-style-type: georgian;
-  background-color: black;
+
+
+.app-wrapper {
+    display: grid;
+
+    grid-template-columns: 2fr 10fr;
+    grid-template-rows: auto 1fr;
+    grid-gap: 10px;
+    padding: 10px 150px;
+
+
+    grid-template-areas:
+    "header header"
+     "aside main";
+
 }
 
-ul li {
-  list-style-type: -moz-myanmar;
+header {
+    grid-area: header;
+    background-color: bisque;
 }
 
-div {
-  text-align: center;
-  color: yellow;
-  background-color: purple;
+header img {
+    width: 150px;
 }
 
-a {
-  color: #f8d535;
+aside {
+    grid-area: aside;
+    background-color: aquamarine;
 }
+
+main {
+    grid-area: main;
+    background-color: coral;
+}
+
+#Kensi {
+    width: 250px;
+}
+
+
+
