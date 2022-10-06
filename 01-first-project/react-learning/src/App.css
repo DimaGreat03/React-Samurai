@@ -6,9 +6,11 @@
 }
 
 ul li {
-  list-style-type: georgian;
+  list-style-type: -moz-myanmar;
 }
 
 div {
   text-align: center;
+  color: yellow;
+  background-color: purple;
 }
