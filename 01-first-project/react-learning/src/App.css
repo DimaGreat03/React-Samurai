@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  color: YELLOW;
+  list-style-type: georgian;
+  background-color: black;
+}
+
+ul li {
+  list-style-type: georgian;
+}
+
+div {
+  text-align: center;
+}
