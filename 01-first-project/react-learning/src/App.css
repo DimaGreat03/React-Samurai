@@ -11,32 +11,13 @@
     grid-template-areas:
     "header header"
      "aside main";
-
 }
 
-header {
-    grid-area: header;
-    background-color: bisque;
-}
 
-header img {
-    width: 150px;
-}
 
-aside {
-    grid-area: aside;
-    background-color: #ffe4c4;
-}
 
-main {
-    grid-area: main;
-    background-color: coral;
 
-}
 
-#Kensi {
-    width: 250px;
-}
 
 
 

@@ -1,12 +1,14 @@
+import s from "./Asaid.module.css"
+
 const Asaid = () => {
     return (
-        <aside>
-            <div><a href="#"> Profile </a></div>
-            <div><a href="#">Messages</a></div>
-            <div><a href="#">News</a></div>
-            <div><a href="#">Music</a></div>
+        <aside className={s.aside}>
+            <div className={`${s.item} ${s.active}`}> <a href> Profile</a> </div>
+            <div className={s.item}><a href>Messages</a></div>
+            <div className={s.item}><a href>News</a></div>
+            <div className={s.item}><a href>Music</a></div>
             <p>
-                <div><a href="#">Setting</a></div>
+                <div className={s.item}><a href>Setting</a></div>
             </p>
         </aside>
     )
