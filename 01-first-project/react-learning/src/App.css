@@ -1,5 +1,4 @@
 
-
 .app-wrapper {
     display: grid;
 
@@ -26,12 +25,13 @@ header img {
 
 aside {
     grid-area: aside;
-    background-color: aquamarine;
+    background-color: #ffe4c4;
 }
 
 main {
     grid-area: main;
     background-color: coral;
+
 }
 
 #Kensi {
