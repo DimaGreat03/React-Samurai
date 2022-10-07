@@ -1,4 +1,5 @@
 import s from "./Main.module.css"
+import MyPosts from "./MyPosts/MyPosts";
 
 const Main = () => {
     return (
@@ -12,18 +13,7 @@ const Main = () => {
                      src="https://cdn.myanimelist.net/s/common/uploaded_files/1442184843-515d9f296a98530000e345d4c3bad3b1.jpeg"/>
                 AVA + FESCRIPTION
             </div>
-            <div>
-                MY POSTS
-                <div>New posts</div>
-            </div>
-            <div className={s.posts}>
-                <div className={s.item}>
-                    post 1
-                </div>
-                <div className={s.item}>
-                    post 2
-                </div>
-            </div>
+            <MyPosts/>
         </main>
     )
 }

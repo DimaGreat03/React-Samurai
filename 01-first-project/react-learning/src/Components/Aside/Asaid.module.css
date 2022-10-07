@@ -1,0 +1,13 @@
+aside {
+    grid-area: aside;
+    background-color: #efc797;
+}
+
+.item {
+    color: #c206c2;
+}
+
+.item.active{
+    color: #56b705;
+}
+

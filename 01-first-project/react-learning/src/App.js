@@ -1,7 +1,7 @@
 import './App.css';
-import Header from "./Components/Header";
-import Asaid from "./Components/Asaid";
-import Main from "./Components/Main";
+import Header from "./Components/Header/Header";
+import Asaid from "./Components/Aside/Asaid";
+import Main from "./Components/Main/Main";
 
 
 const App = (props) => {
