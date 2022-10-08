@@ -1,5 +1,5 @@
 import s from "./MyPosts.module.css"
-import Post1 from "./Post/post 1";
+import Post from "./Post/post";
 
 const MyPosts = () => {
     return (
@@ -13,10 +13,8 @@ const MyPosts = () => {
                 </div>
             </div>
             <div className={s.posts}>
-                <Post1/>
-                <Post1/>
-                <Post1/>
-                <Post1/>
+                <Post message='Hello. I am first samurai Battu!' likes='Like 15'/>
+                <Post message='Hi. I am friend first samurai Battu!' likes='Like 30'/>
             </div>
         </div>
     )
