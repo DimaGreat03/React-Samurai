@@ -13,6 +13,13 @@
      "aside main";
 }
 
+.app-wrapper-main {
+    grid-area: main;
+    background-color: coral;
+}
+
+
+
 
 
 
