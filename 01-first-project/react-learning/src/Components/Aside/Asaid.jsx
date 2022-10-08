@@ -3,8 +3,8 @@ import s from "./Asaid.module.css"
 const Asaid = () => {
     return (
         <div className={s.aside}>
-            <div className={`${s.item} ${s.active}`}> <a href> Profile</a> </div>
-            <div className={s.item}><a href>Messages</a></div>
+            <div className={`${s.item} ${s.active}`}> <a href="/profile"> Profile</a> </div>
+            <div className={s.item}><a href="/dialogs">Messages</a></div>
             <div className={s.item}><a href>News</a></div>
             <div className={s.item}><a href>Music</a></div>
             <p>

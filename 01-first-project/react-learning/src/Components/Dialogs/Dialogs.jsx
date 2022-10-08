@@ -1,11 +1,9 @@
-
-
-
+import s from "./Dialogs.module.css"
 
 const Dialogs = (props) => {
     return (
-        <div>
-            Dialogs
+        <div className={s.item}>
+           <b> Dialogs </b>
         </div>
     )
 }
