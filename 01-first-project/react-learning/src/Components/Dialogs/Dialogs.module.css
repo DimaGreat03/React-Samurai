@@ -1,23 +1,18 @@
 .dialogs {
     display: grid;
-    grid-template-columns: 1fr 5fr 5fr;
+    grid-template-columns: 2fr 10fr;
     padding: 10px;
-}
-
-.dialogs {
     font-size: 20px;
 }
 
 .dialogs .peoples {
 }
 
-.peoples .people.active {
+.people.active  {
     color: gold;
 }
 
 .messages {
-}
-
-.messages .message {
     color: pink;
 }
+
