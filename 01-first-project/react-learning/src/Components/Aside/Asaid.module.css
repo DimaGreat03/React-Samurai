@@ -1,13 +1,16 @@
 .aside {
     grid-area: aside;
     background-color: #efc797;
+    padding: 20px;
 }
 
-.item {
-    color: #c206c2;
+.item a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 22px;
 }
 
-.item.active{
-    color: #56b705;
+.item a.activeLink{
+    color: deeppink;
 }
 
