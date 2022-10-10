@@ -1,36 +1,43 @@
 import s from "./Dialogs.module.css"
 import {NavLink} from "react-router-dom";
 
+
+const DialogItem = (props) => {
+    let path = "dialog/" + props.id
+    return (
+        <div>
+            <div className={s.people}>
+                <NavLink to={path}
+                         className={navData => navData.isActive ? s.activeLink : s.notActiveLink}> {props.name} </NavLink>
+            </div>
+        </div>
+    )
+}
+
+const Message = (props) => {
+    return (
+        <div>
+            {props.message}
+        </div>
+    )
+}
+
+
 const Dialogs = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.peoples}>
-                <div className={s.people}>
-                    <NavLink to="/dhjkialog/1"> Dima </NavLink>
-                </div>
-                <div className={`${s.people} ${s.active}`}>
-                    <NavLink to="/dialog/2"> Polina </NavLink>
-                </div>
-                <div className={s.people}>
-                    <NavLink to="/dialog/3">Eranga </NavLink>
-                </div>
-                <div className={s.people}>
-                    <NavLink to="/dialog/4">Budim </NavLink>
-                </div>
+                <DialogItem name="Dima" id="1"/>
+                <DialogItem name="Polina" id="2"/>
+                <DialogItem name="Eranga" id="3"/>
+                <DialogItem name="Budik" id="4"/>
             </div>
+
             <div className={s.messages}>
-                <div className={s.message}>
-                    hellow, i am go to 2013 year with Polya Demina
-                </div>
-                <div className={s.message}>
-                    Hi Dima, i miss you and miss to 2014 year...
-                </div>
-                <div className={s.message}>
-                    I am just angry girls.
-                </div>
-                <div className={s.message}>
-                    I am big nose from Minusinsk :)
-                </div>
+                <Message message="I-am Dima"/>
+                <Message message="I love 2013 year, because Dima"/>
+                <Message message="I am just Erana"/>
+                <Message message="just Budik"/>
             </div>
         </div>
     )

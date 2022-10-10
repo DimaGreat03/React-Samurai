@@ -1,18 +1,20 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
-    padding: 10px;
-    font-size: 20px;
+    padding: 25px;
+    font-size: 22px;
 }
 
-.dialogs .peoples {
+.activeLink {
+    color: white;
+    text-decoration: none;
 }
 
-.people.active  {
-    color: gold;
+.notActiveLink {
+    color: black;
+    text-decoration: none;
 }
 
 .messages {
     color: pink;
 }
-

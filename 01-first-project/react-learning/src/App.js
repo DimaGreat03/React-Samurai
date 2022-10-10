@@ -1,7 +1,7 @@
 import './App.css';
 import Header from "./Components/Header/Header";
 import Asaid from "./Components/Aside/Asaid";
-import Main from "./Components/Main/Main";
+import Profile from "./Components/Profile/Profile";
 import Dialogs from "./Components/Dialogs/Dialogs";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import News from "./Components/News/News";
@@ -17,7 +17,7 @@ const App = (props) => {
                 <Asaid/>
                 <div className='app-wrapper-main'>
                     <Routes>
-                        <Route path="/profile" element={<Main/>}/>
+                        <Route path="/profile" element={<Profile/>}/>
                         <Route path=":message/*" element={<Dialogs/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/music" element={<Music/>}/>

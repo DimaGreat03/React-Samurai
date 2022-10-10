@@ -4,21 +4,21 @@ import {NavLink} from "react-router-dom";
 const Asaid = () => {
     return (
         <div className={s.aside}>
-            <div className={s.item}><NavLink to="/profile"
-                                             className={navData => navData.isActive ? s.activeLink : s.item}> Profile</NavLink>
+            <div><NavLink to="/profile"
+                          className={navData => navData.isActive ? s.activeLink : s.notActiveLink}> Profile</NavLink>
             </div>
-            <div className={s.item}><NavLink to="/message"
-                                             className={navData => navData.isActive ? s.activeLink : s.item}>Message</NavLink>
+            <div><NavLink to="/message"
+                          className={navData => navData.isActive ? s.activeLink : s.notActiveLink}>Message</NavLink>
             </div>
-            <div className={s.item}><NavLink to="/news"
-                                             className={navData => navData.isActive ? s.activeLink : s.item}>News</NavLink>
+            <div><NavLink to="/news"
+                          className={navData => navData.isActive ? s.activeLink : s.notActiveLink}>News</NavLink>
             </div>
-            <div className={s.item}><NavLink to="music"
-                                             className={navData => navData.isActive ? s.activeLink : s.item}>Music</NavLink>
+            <div><NavLink to="music"
+                          className={navData => navData.isActive ? s.activeLink : s.notActiveLink}>Music</NavLink>
             </div>
             <p>
-                <div className={s.item}><NavLink to="setting"
-                                                 className={navData => navData.isActive ? s.activeLink : s.item}>Setting</NavLink>
+                <div><NavLink to="setting"
+                              className={navData => navData.isActive ? s.activeLink : s.notActiveLink}>Setting</NavLink>
                 </div>
             </p>
         </div>

@@ -1,8 +1,11 @@
 header {
     grid-area: header;
     background-color: bisque;
+     border-radius: 25px;
 }
 
 header img {
     width: 150px;
+    padding: 10px 10px 10px 25px;
+    border-radius: 35px;
 }
