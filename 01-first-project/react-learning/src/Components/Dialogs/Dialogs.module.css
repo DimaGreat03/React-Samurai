@@ -1,8 +1,6 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
-    padding: 25px;
-    font-size: 22px;
 }
 
 .activeLink {

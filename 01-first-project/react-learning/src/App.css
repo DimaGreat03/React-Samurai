@@ -15,6 +15,8 @@
     grid-area: main;
     background-color: #cc7b48;
     border-radius: 25px 25px 25px 25px;
+    padding: 25px;
+    font-size: 20px;
 }
 
 
