@@ -10,6 +10,7 @@ import Setting from "./Components/Setting/Setting";
 
 
 const App = (props) => {
+
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -17,8 +18,9 @@ const App = (props) => {
                 <Asaid/>
                 <div className='app-wrapper-main'>
                     <Routes>
-                        <Route path="/profile" element={<Profile/>}/>
-                        <Route path=":message/*" element={<Dialogs/>}/>
+                        <Route path="/profile" element={<Profile posts={props.posts}/>}/>
+                        <Route path=":message/*"
+                               element={<Dialogs arrayNames={props.arrayNames} arrayMessages={props.arrayMessages}/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/setting" element={<Setting/>}/>
