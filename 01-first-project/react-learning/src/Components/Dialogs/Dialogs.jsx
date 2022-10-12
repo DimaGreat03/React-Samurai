@@ -1,26 +1,13 @@
 import s from "./Dialogs.module.css"
-import {NavLink} from "react-router-dom";
+import DialogItem from "./DialogItem/DialogItem";
+import DialogMessage from "./DialogMessage/DialogMessage";
+import {arrayNames, arrayMessages} from "./../../index"
+
 
 const Dialogs = (props) => {
 
-    //Массив для имен и их url
-    let arrayNames = [
-        {url: 1, name: 'Dima'},
-        {url: 2, name: 'Polya'},
-        {url: 3, name: 'Eranga'},
-        {url: 4, name: 'Budik'}
-    ]
-
-    //Массив для сообщений
-    let arrayMessages = [
-        {id: 1, message: 'Hi, i-a Dima'},
-        {id: 2, message: 'I am Polya, and I am funny'},
-        {id: 3, message: 'Just Eranga'},
-        {id: 4, message: 'I-am Budik'}
-    ]
-
     let dialogsElements = arrayNames.map(d => <DialogItem name={d.name} id={d.url}/>)
-    let dialogMessages = arrayMessages.map(m => <Message message={m.message}/>)
+    let dialogMessages = arrayMessages.map(m => <DialogMessage message={m.message}/>)
 
     return (
         <div className={s.dialogs}>
@@ -38,26 +25,9 @@ const Dialogs = (props) => {
 export default Dialogs
 
 
-//----------------------------------------------------------------------------------------------------------------------
 
-const DialogItem = (props) => {
-    return (
-        <div>
-            <div className={s.people}>
-                <NavLink to={"dialog/" + props.id}
-                         className={navData => navData.isActive ? s.activeLink : s.notActiveLink}> {props.name} </NavLink>
-            </div>
-        </div>
-    )
-}
 
-const Message = (props) => {
-    return (
-        <div>
-            {props.message}
-        </div>
-    )
-}
+
 
 
 
