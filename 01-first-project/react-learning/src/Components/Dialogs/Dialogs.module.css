@@ -1,6 +1,7 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
+
 }
 
 .activeLink {
@@ -14,5 +15,7 @@
 }
 
 .messages {
-    color: pink;
+    color: ivory;
 }
+
+

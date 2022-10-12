@@ -8,6 +8,9 @@ const MyPosts = () => {
         {id: 1, message: 'Hi, i-am ruroni Kenshin', scoreLikes: 'Likes 35'},
         {id: 2, message: 'My favorite samurai anime', scoreLikes: 'Likes 77'}
     ]
+
+    let postElements = postData.map( m => <Post message={m.message} likes={m.scoreLikes}/>)
+
     return (
         <div>
             <div>
@@ -21,8 +24,7 @@ const MyPosts = () => {
                 </div>
             </div>
             <div className={s.posts}>
-                <Post message={postData[0].message} likes={postData[0].scoreLikes}/>
-                <Post message={postData[1].message} likes={postData[1].scoreLikes}/>
+                {postElements}
             </div>
         </div>
     )
