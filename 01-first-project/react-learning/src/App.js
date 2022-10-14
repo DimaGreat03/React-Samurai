@@ -17,7 +17,7 @@ const App = (props) => {
                 <Asaid/>
                 <div className='app-wrapper-main'>
                     <Routes>
-                        <Route path="/profile" element={<Profile posts={props.next.profilePage.posts}/>}/>
+                        <Route path="/profile" element={<Profile posts={props.next.profilePage.posts} addPost={props.addPost}/>}/>
                         <Route path=":message/*"
                                element={<Dialogs arrayNames={props.next.messagePage.arrayNames} arrayMessages={props.next.messagePage.arrayMessages}/>}/>
                         <Route path="/news" element={<News/>}/>
