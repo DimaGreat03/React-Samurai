@@ -1,5 +1,16 @@
+import React from "react";
+
+let typingText = React.createRef()
+
+let sentMessage = () => {
+    let text = typingText.current.value;
+    alert(text)
+}
+
+
 
 let state = {
+
     messagePage: {
         arrayNames: [
             {url: 1, name: 'Dima', img: <img width="50px" src="/image/dima.png"/> },
@@ -11,7 +22,7 @@ let state = {
             {id: 1, message: <li> 'Hi, i-am Dima' </li>},
             {id: 2, message: <li>'I am Polya, and I am funny'</li>},
             {id: 3, message: <li>'Just Eranga'</li>},
-            {id: 4, message: <li>'I-am Budik'</li>}
+            {id: 4, message: <li>'I-am Budik'</li>, textarea: <textarea ref={typingText}></textarea>, button: <button onClick={sentMessage}>sent message</button>}
         ]
     },
     profilePage: {
@@ -21,5 +32,9 @@ let state = {
         ]
     }
 }
+
+
+
+
 
 export default state

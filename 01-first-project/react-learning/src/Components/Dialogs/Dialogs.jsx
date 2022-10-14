@@ -7,7 +7,7 @@ import DialogMessage from "./DialogMessage/DialogMessage";
 const Dialogs = (props) => {
 
     let dialogsElements = props.arrayNames.map(d => <DialogItem name={d.name} id={d.url} img={d.img}/>)
-    let dialogMessages = props.arrayMessages.map(m => <DialogMessage message={m.message}/>)
+    let dialogMessages = props.arrayMessages.map(m => <DialogMessage message={m.message} textarea={m.textarea} button={m.button}/>)
 
     return (
         <div className={s.dialogs}>
