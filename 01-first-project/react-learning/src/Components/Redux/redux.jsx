@@ -1,4 +1,5 @@
 import React from "react";
+import {rerenderEntriesTree} from "../../render";
 
 let typingText = React.createRef()
 
@@ -38,8 +39,8 @@ let state = {
         message: postMessage,
         scoreLikes: 0
     };
-
     state.profilePage.posts.push(newPost)
+        rerenderEntriesTree(state)
 }
 
 
