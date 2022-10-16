@@ -5,15 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import {addPost} from "./Components/Redux/redux";
+import {updatePost} from "./Components/Redux/redux";
 
 
-
+const root = ReactDOM.createRoot(document.getElementById('root'));
 export let rerenderEntriesTree = (state) => {
-    const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App next={state} addPost={addPost}/>
+                <App next={state} addPost={addPost} updatePost={updatePost}/>
             </BrowserRouter>
         </React.StrictMode>
     );
