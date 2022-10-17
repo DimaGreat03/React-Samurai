@@ -1,5 +1,9 @@
 import React from "react";
-import {rerenderEntriesTree} from "../../render";
+
+
+let rerenderEntriesTree =() => {
+    console.log ('change')
+}
 
 let typingText = React.createRef()
 
@@ -40,7 +44,7 @@ let state = {
 
 window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 3,
         message: state.profilePage.newPostText,
@@ -51,10 +55,13 @@ export let addPost = () => {
     rerenderEntriesTree(state)
 }
 
-export let updatePost = (newText) => {
+export const updatePost = (newText) => {
     state.profilePage.newPostText = newText
     rerenderEntriesTree(state)
 }
 
+export const subscribe = (observer) => {
+    rerenderEntriesTree = observer
+}
 
 export default state
