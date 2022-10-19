@@ -12,8 +12,7 @@ let rerenderEntriesTree = () => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App next={store.getState()} addPost={store.addPost.bind(store)}
-                     updatePost={store.updatePost.bind(store)}/>
+                <App next={store.getState()} dispatch={store.dispatch.bind(store)}/>
             </BrowserRouter>
         </React.StrictMode>
     );

@@ -22,33 +22,34 @@ let store = {
             newPostText: 'Dima-kek'
         }
     },
-    getState() {
-        return this._state
-    },
-
     _rerenderEntriesTree() {
         console.log('change')
     },
 
-    addPost() {
-        let newPost = {
-            id: 3,
-            message: this._state.profilePage.newPostText,
-            scoreLikes: 'LIKES +17'
-        };
-        this._state.profilePage.posts.unshift(newPost)
-        this._state.profilePage.newPostText = ''
-        this._rerenderEntriesTree()
+    getState() {
+        return this._state
     },
-
-    updatePost(newText) {
-        this._state.profilePage.newPostText = newText
-        this._rerenderEntriesTree()
-    },
-
     subscribe(observer) {
         this._rerenderEntriesTree = observer
+    },
+
+    dispatch (action) {
+        debugger
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 3,
+                message: this._state.profilePage.newPostText,
+                scoreLikes: 'Likes + 3'
+            }
+            this._state.profilePage.posts.unshift(newPost)
+            this._state.profilePage.newPostText = '';
+            this._rerenderEntriesTree()
+        } else if (action.type === 'UPDATE-POST') {
+            this._state.profilePage.newPostText = action.newText;
+            this._rerenderEntriesTree()
+        }
     }
+
 }
 
 
