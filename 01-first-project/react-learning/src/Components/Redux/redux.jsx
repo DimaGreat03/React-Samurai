@@ -1,3 +1,9 @@
+
+
+
+const ADD_POST = 'ADD-POST'
+const UPDATE_POST = 'UPDATE-POST'
+
 let store = {
     _state: {
         messagePage: {
@@ -35,7 +41,7 @@ let store = {
 
     dispatch (action) {
         debugger
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 3,
                 message: this._state.profilePage.newPostText,
@@ -44,13 +50,17 @@ let store = {
             this._state.profilePage.posts.unshift(newPost)
             this._state.profilePage.newPostText = '';
             this._rerenderEntriesTree()
-        } else if (action.type === 'UPDATE-POST') {
+        } else if (action.type === UPDATE_POST) {
             this._state.profilePage.newPostText = action.newText;
             this._rerenderEntriesTree()
         }
     }
 
 }
+
+
+export const addPostActionCreator = () => ({type: 'ADD-POST'})
+export const updatePostActionCreator = (text) => ({type: 'UPDATE-POST', newText: text})
 
 
 export default store
