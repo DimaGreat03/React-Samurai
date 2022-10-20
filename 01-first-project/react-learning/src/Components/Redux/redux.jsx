@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST'
-const UPDATE_POST = 'UPDATE-POST'
-const SEND_MESSAGE = 'SEND-MESSAGE'
-const UPDATE_MESSAGE = 'UPDATE-MESSAGE'
+import profileReducer from "./profile-reducer";
+import messageReducer from "./message-reducer";
+
 
 let store = {
     _state: {
@@ -28,10 +27,6 @@ let store = {
             newPostText: 'Dima-kek'
         }
     },
-
-
-
-
     _rerenderEntriesTree() {
         console.log('change')
     },
@@ -44,43 +39,14 @@ let store = {
     },
 
     dispatch (action) {
-        debugger
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 3,
-                message: this._state.profilePage.newPostText,
-                scoreLikes: 'Likes + 3'
-            }
-            this._state.profilePage.posts.unshift(newPost)
-            this._state.profilePage.newPostText = '';
-            this._rerenderEntriesTree()
-        } else if (action.type === UPDATE_POST) {
-            this._state.profilePage.newPostText = action.newText;
-            this._rerenderEntriesTree()
-
-
-
-        } else if (action.type === SEND_MESSAGE) {
-            let newMessage = {
-                id: 5,
-                message: this._state.messagePage.newMessageText
-            }
-            this._state.messagePage.arrayMessages.push(newMessage);
-            this._state.messagePage.newMessageText = ''
-            this._rerenderEntriesTree()
-        } else if (action.type === UPDATE_MESSAGE) {
-            this._state.messagePage.newMessageText = action.newText;
-            this._rerenderEntriesTree()
-        }
+           profileReducer(this._state.profilePage, action)
+           messageReducer(this._state.messagePage, action)
+           this._rerenderEntriesTree()
     }
-
 }
 
 
-export const addPostActionCreator = () => ({type: 'ADD-POST'})
-export const updatePostActionCreator = (text) => ({type: 'UPDATE-POST', newText: text})
-export const sendMessageActionCreator = () => ({type: 'SEND-MESSAGE'})
-export const updateMessageActionCreator = (text) => ({type: 'UPDATE-MESSAGE', newText: text})
+
 
 
 
