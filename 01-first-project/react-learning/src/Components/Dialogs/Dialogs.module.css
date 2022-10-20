@@ -22,10 +22,12 @@
     border-radius: 25px;
 }
 
-
 .messages {
     padding-top: 10px;
     line-height: 2.8;
 }
 
 
+.button {
+    padding-left: 150px;
+}

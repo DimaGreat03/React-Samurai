@@ -3,7 +3,6 @@ const DialogMessage = (props) => {
         <div>
             {props.message}
             {props.textarea}
-            <div> {props.button} </div>
         </div>
     )
 }

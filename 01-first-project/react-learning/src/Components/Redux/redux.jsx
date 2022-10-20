@@ -1,8 +1,7 @@
-
-
-
 const ADD_POST = 'ADD-POST'
 const UPDATE_POST = 'UPDATE-POST'
+const SEND_MESSAGE = 'SEND-MESSAGE'
+const UPDATE_MESSAGE = 'UPDATE-MESSAGE'
 
 let store = {
     _state: {
@@ -18,7 +17,8 @@ let store = {
                 {id: 2, message: <li>'I am Polya, and I am funny'</li>},
                 {id: 3, message: <li>'Just Eranga'</li>},
                 {id: 4, message: <li>'I-am Budik'</li>}
-            ]
+            ],
+            newMessageText:  ''
         },
         profilePage: {
             posts: [
@@ -28,6 +28,10 @@ let store = {
             newPostText: 'Dima-kek'
         }
     },
+
+
+
+
     _rerenderEntriesTree() {
         console.log('change')
     },
@@ -53,6 +57,20 @@ let store = {
         } else if (action.type === UPDATE_POST) {
             this._state.profilePage.newPostText = action.newText;
             this._rerenderEntriesTree()
+
+
+
+        } else if (action.type === SEND_MESSAGE) {
+            let newMessage = {
+                id: 5,
+                message: this._state.messagePage.newMessageText
+            }
+            this._state.messagePage.arrayMessages.push(newMessage);
+            this._state.messagePage.newMessageText = ''
+            this._rerenderEntriesTree()
+        } else if (action.type === UPDATE_MESSAGE) {
+            this._state.messagePage.newMessageText = action.newText;
+            this._rerenderEntriesTree()
         }
     }
 
@@ -61,6 +79,9 @@ let store = {
 
 export const addPostActionCreator = () => ({type: 'ADD-POST'})
 export const updatePostActionCreator = (text) => ({type: 'UPDATE-POST', newText: text})
+export const sendMessageActionCreator = () => ({type: 'SEND-MESSAGE'})
+export const updateMessageActionCreator = (text) => ({type: 'UPDATE-MESSAGE', newText: text})
+
 
 
 export default store

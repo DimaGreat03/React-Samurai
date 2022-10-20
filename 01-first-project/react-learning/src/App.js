@@ -21,7 +21,9 @@ const App = (props) => {
                            element={<Profile profilePage={props.next.profilePage}
                                              dispatch={props.dispatch}/>}/>
                     <Route path=":message/*" element={<Dialogs arrayNames={props.next.messagePage.arrayNames}
-                                                               arrayMessages={props.next.messagePage.arrayMessages}/>}/>
+                                                               arrayMessages={props.next.messagePage.arrayMessages}
+                                                               dispatch={props.dispatch}
+                                                               newMessageText={props.next.messagePage.newMessageText}/>}/>
                     <Route path="/news" element={<News/>}/>
                     <Route path="/music" element={<Music/>}/>
                     <Route path="/setting" element={<Setting/>}/>
