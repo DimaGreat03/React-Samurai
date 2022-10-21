@@ -2,11 +2,11 @@ const ADD_POST = 'ADD-POST'
 const UPDATE_POST = 'UPDATE-POST'
 
 let initialState = {
-        posts: [
-            {id: 1, message: 'Hi, i-am ruroni Kenshin', scoreLikes: 'Likes 35'},
-            {id: 2, message: 'My favorite samurai anime', scoreLikes: 'Likes 77'}
-        ],
-        newPostText: 'Dima-kek'
+    posts: [
+        {id: 1, message: 'Hi, i-am ruroni Kenshin', scoreLikes: 'Likes 35'},
+        {id: 2, message: 'My favorite samurai anime', scoreLikes: 'Likes 77'},
+    ],
+    newPostText: 'Dima-kek'
 }
 
 
