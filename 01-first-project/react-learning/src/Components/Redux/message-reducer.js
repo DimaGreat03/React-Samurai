@@ -14,7 +14,7 @@ let initialState = {
             {id: 3, message: <li>'Just Eranga'</li>},
             {id: 4, message: <li>'I-am Budik'</li>}
         ],
-        newMessageText:  ''
+        newMessageText:  'click me'
 }
 
 
