@@ -17,8 +17,8 @@ const App = (props) => {
             <Asaid/>
             <div className='app-wrapper-main'>
                 <Routes>
-                    <Route path="/profile" element={<Profile store={props.store}/>}/>
-                    <Route path=":message/*" element={<DialogsContainer store={props.store}/>}/>
+                    <Route path="/profile" element={<Profile />}/>
+                    <Route path=":message/*" element={<DialogsContainer />}/>
                     <Route path="/news" element={<News/>}/>
                     <Route path="/music" element={<Music/>}/>
                     <Route path="/setting" element={<Setting/>}/>
