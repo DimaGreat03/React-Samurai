@@ -11,7 +11,7 @@ const ProfileInfo = (props) => {
             <div className={s.ava}>
                 <img
                     src="https://cdn.myanimelist.net/s/common/uploaded_files/1442184843-515d9f296a98530000e345d4c3bad3b1.jpeg"/>
-                AVA + FESCRIPTION
+                AVA + RESCRIPTION
             </div>
         </div>
     )
