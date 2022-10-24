@@ -10,7 +10,6 @@ import {Provider} from "react-redux";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let rerenderEntriesTree = () => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
@@ -21,10 +20,11 @@ let rerenderEntriesTree = () => {
         </React.StrictMode>
     );
 
-}
 
-store.subscribe(rerenderEntriesTree)
-rerenderEntriesTree();
+
+
+
+
 
 
 // If you want to start measuring performance in your app, pass a function
