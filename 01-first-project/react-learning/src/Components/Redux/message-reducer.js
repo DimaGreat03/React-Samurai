@@ -20,8 +20,6 @@ let initialState = {
 
 
 const messageReducer = (state = initialState, action) => {
-
-    let stateCopy = {...state};
     switch (action.type) {
         case SEND_MESSAGE:
             let body = state.newMessageText;
