@@ -16,6 +16,9 @@ const Asaid = () => {
             <div><NavLink to="music"
                           className={navData => navData.isActive ? s.activeLink : s.notActiveLink}>Music</NavLink>
             </div>
+            <div><NavLink to="/users"
+                          className={navData => navData.isActive? s.activeLink : s.notActiveLink}>Users</NavLink>
+            </div>
             <p>
                 <div><NavLink to="setting"
                               className={navData => navData.isActive ? s.activeLink : s.notActiveLink}>Setting</NavLink>
