@@ -1,14 +1,16 @@
 .aside {
     grid-area: aside;
-    background-color: #efc797;
+    background-color: #c9c8c8;
     padding: 20px;
     font-size: 22px;
     border-radius: 25px;
+    border-style: solid;
 }
 
 .activeLink{
-    color: white;
+    color: #d50606;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .notActiveLink {

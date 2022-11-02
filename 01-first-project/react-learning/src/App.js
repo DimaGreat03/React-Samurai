@@ -11,23 +11,23 @@ import Footer from "./Components/Footer/footer";
 import UsersContainer from "./Components/Users/usersContainer";
 
 
-
 const App = (props) => {
-
     return (
-        <div className="app-wrapper">
-            <Header/>
-            <Asaid/>
-            <Footer/>
-            <div className='app-wrapper-main'>
-                <Routes>
-                    <Route path="/profile" element={<Profile />}/>
-                    <Route path=":message/*" element={<DialogsContainer />}/>
-                    <Route path="/news" element={<News/>}/>
-                    <Route path="/music" element={<Music/>}/>
-                    <Route path="/setting" element={<Setting/>}/>
-                    <Route path="/users" element={<UsersContainer/>}/>
-                </Routes>
+        <div className="container">
+            <div className="app-wrapper">
+                <Header/>
+                <Asaid/>
+                <Footer/>
+                <div className='app-wrapper-main'>
+                    <Routes>
+                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path=":message/*" element={<DialogsContainer/>}/>
+                        <Route path="/news" element={<News/>}/>
+                        <Route path="/music" element={<Music/>}/>
+                        <Route path="/setting" element={<Setting/>}/>
+                        <Route path="/users" element={<UsersContainer/>}/>
+                    </Routes>
+                </div>
             </div>
         </div>
     );

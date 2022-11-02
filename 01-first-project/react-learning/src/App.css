@@ -1,4 +1,6 @@
 
+
+
 .app-wrapper {
     display: grid;
     grid-template-columns: 2fr 10fr;
@@ -14,12 +16,16 @@
 
 .app-wrapper-main {
     grid-area: main;
-    background-color: #cc7b48;
+    background-color: #c9c8c8;
     border-radius: 25px 25px 25px 25px;
     padding: 25px;
     font-size: 20px;
+    border-style: solid;
 }
 
+.container {
+    background-color: #835961;
+}
 
 
 

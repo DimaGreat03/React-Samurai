@@ -5,8 +5,9 @@
 }
 
 .activeLink {
-    color: white;
+    color: #d20303;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .notActiveLink {
@@ -15,7 +16,7 @@
 }
 
 .messages {
-    color: ivory;
+    color: #000000;
 }
 
 .peoples img {

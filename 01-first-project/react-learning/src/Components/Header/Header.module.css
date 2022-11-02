@@ -1,11 +1,29 @@
 header {
     grid-area: header;
-    background-color: bisque;
+    background-color: #fdd5f6;
     border-radius: 25px;
+    border-style: solid;
 }
 
 .logo {
     width: 150px;
     padding: 15px;
     border-radius: 55px;
+}
+
+.front img {
+    width: 150px;
+    border-style: solid;
+    margin: 30px 20px 0px 10px;
+    border-radius: 10px;
+
+}
+
+.front {
+    text-align: center;
+}
+
+.text {
+    text-align: center;
+    color: #b2112d;
 }
