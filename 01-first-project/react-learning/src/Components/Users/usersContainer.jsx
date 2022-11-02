@@ -14,7 +14,6 @@ import Preloader from "../common/preloader/preloader";
 
 class UsersApiContainer extends React.Component {
 
-
     componentDidMount() {
         this.props.toggleIsFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
@@ -32,7 +31,6 @@ class UsersApiContainer extends React.Component {
             this.props.setUsers(response.data.items)
         })
     }
-
 
     render() {
         return <>
