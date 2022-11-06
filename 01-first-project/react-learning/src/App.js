@@ -1,5 +1,4 @@
 import './App.css';
-import Header from "./Components/Header/Header";
 import Asaid from "./Components/Aside/Asaid";
 import {Routes, Route} from "react-router-dom";
 import News from "./Components/News/News";
@@ -9,6 +8,7 @@ import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import Footer from "./Components/Footer/footer";
 import UsersContainer from "./Components/Users/usersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
+import HeaderContainer from "./Components/Header/HeaderContainer";
 
 
 
@@ -16,7 +16,7 @@ const App = (props) => {
     return (
         <div className="container">
             <div className="app-wrapper">
-                <Header/>
+                <HeaderContainer/>
                 <Asaid/>
                 <Footer/>
                 <div className='app-wrapper-main'>

@@ -27,3 +27,15 @@ header {
     text-align: center;
     color: #b2112d;
 }
+
+.loginBlock {
+    float: right;
+    margin: 15px;
+}
+
+.buttonLogin {
+    font-size: 25px;
+    color: #0031f6;
+    background-color: #ffffff;
+    border-radius: 15px;
+}
