@@ -21,8 +21,9 @@ const App = (props) => {
                 <Footer/>
                 <div className='app-wrapper-main'>
                     <Routes>
-                        <Route path="/profile*" element={<ProfileContainer/>}/>
-                        <Route path="/message*" element={<DialogsContainer/>}/>
+                        <Route path="/profile/:userId" element={<ProfileContainer/>}/>
+                        <Route path="/profile/*" element={<ProfileContainer/>}/>
+                        <Route path="/message/*" element={<DialogsContainer/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/setting" element={<Setting/>}/>

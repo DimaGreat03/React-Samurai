@@ -1,4 +1,8 @@
 import s from "./footer.module.css"
+import ars from "../assets/image/ars.jpeg"
+import we from "../assets/image/we.jpeg"
+import brothers from "../assets/image/brothers.jpeg"
+
 
 
 let Footer = () => {
@@ -7,9 +11,9 @@ let Footer = () => {
             Это твой подвал социальной сети!
             <div>Твои братья не святые</div>
             <div>
-                <img src="./image/brothers.jpeg"/>
-                <img src="./image/ars.jpeg"/>
-                <img src="./image/we.jpeg"/>
+                <img src={brothers}/>
+                <img src={ars}/>
+                <img src={we}/>
             </div>
         </div>
     )
