@@ -31,6 +31,13 @@ header {
 .loginBlock {
     float: right;
     margin: 15px;
+    font-family: -apple-system;
+    font-size: 25px;
+    color: #010917;
+    border-style: dotted;
+    background-color: #e6ebfc;
+    border-color: #030202;
+    border-radius: 5px;
 }
 
 .buttonLogin {

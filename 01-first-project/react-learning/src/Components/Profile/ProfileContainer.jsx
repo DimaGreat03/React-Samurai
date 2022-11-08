@@ -11,6 +11,7 @@ class ProfileApi extends React.Component {
         let userId = this.props.param.userId
         if (userId == null) {userId = 1432};
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId).then(response => {
+            debugger
             this.props.setUserProfile(response.data)
         })
     }

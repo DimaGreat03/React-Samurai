@@ -40,13 +40,15 @@ const userReducer = (state = initialState, action) => {
         case SET_USERS: {
             return {
                 ...state,
-                users: action.users
+                users: action.users,
+                isFetching: false,
             }
         }
         case SET_CURRENT_PAGE: {
             return {
                 ...state,
-                currentPage: action.currentPage
+                currentPage: action.currentPage,
+                isFetching: true,
             }
         }
         case SET_USERS_TOTAL_COUNT: {
@@ -55,12 +57,12 @@ const userReducer = (state = initialState, action) => {
                     totalUsersCount: action.totalCount
                 }
             }
-        case TOGGLE_IS_FETCHING: {
+        /*case TOGGLE_IS_FETCHING: {
             return {
                 ...state,
                 isFetching: action.isFetching
             }
-        }
+        }*/
         default:
             return state
     }
