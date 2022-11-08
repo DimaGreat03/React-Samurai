@@ -33,16 +33,18 @@ header {
     margin: 15px;
     font-family: -apple-system;
     font-size: 25px;
-    color: #010917;
+    color: #ffffff;
     border-style: dotted;
-    background-color: #e6ebfc;
+    background-color: #000000;
     border-color: #030202;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
-.buttonLogin {
+.login {
+    float: right;
+    font-family: -apple-system;
     font-size: 25px;
-    color: #0031f6;
-    background-color: #ffffff;
-    border-radius: 15px;
+    color: #ffffff;
+    background-color: #0029f8;
+    border-radius: 10px;
 }
