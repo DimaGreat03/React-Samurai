@@ -10,9 +10,16 @@ export const UserApi = {
     getUser(currentPage, pageSize) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data)
     },
-    getUser2(pageNumber, pageSize) {
+    getUserClick(pageNumber, pageSize) {
         return instance.get(`users?page=${pageNumber}&count=${pageSize}`).then(response => response.data)
+    },
+    follow(u) {
+        return instance.post(`follow/${u}`)
+    },
+    unfollow(u) {
+        return instance.delete(`follow/${u}`)
     }
+
 }
 
 

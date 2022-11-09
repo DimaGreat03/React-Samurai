@@ -23,7 +23,7 @@ class UsersApiContainer extends React.Component {
 
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
-        UserApi.getUser2(pageNumber, this.props.pageSize).then(data => {
+        UserApi.getUserClick(pageNumber, this.props.pageSize).then(data => {
             this.props.setUsers(data.items)
         })
     }
