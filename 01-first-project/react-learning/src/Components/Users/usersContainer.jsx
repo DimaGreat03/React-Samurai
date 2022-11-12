@@ -16,7 +16,7 @@ class UsersApiContainer extends React.Component {
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.clickPageThunk(pageNumber, this.props.pageSize, this.props.toggleIsFetching)
+        this.props.clickPageThunk(pageNumber, this.props.pageSize)
     }
 
     render() {

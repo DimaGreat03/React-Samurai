@@ -6,7 +6,7 @@ let instance = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
 })
 
-export const UserApi = {
+export const UserAPI = {
     getUser(currentPage, pageSize) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data)
     },

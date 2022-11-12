@@ -1,4 +1,4 @@
-import {UserApi} from "../Api/api";
+import {UserAPI} from "../Api/userAPI";
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET-USERS'
@@ -93,7 +93,7 @@ export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFe
 
 export const getUsersThunk = (currentPage, pageSize) => {
     return (dispatch) => {
-        UserApi.getUser(currentPage, pageSize).then(data => {
+        UserAPI.getUser(currentPage, pageSize).then(data => {
             dispatch(setUsers(data.items))
             dispatch(setUsersTotalCount(data.totalCount))
         })
@@ -102,7 +102,7 @@ export const getUsersThunk = (currentPage, pageSize) => {
 export const clickPageThunk = (pageNumber, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true))
-        UserApi.getUserClick(pageNumber, pageSize).then(data => {
+        UserAPI.getUserClick(pageNumber, pageSize).then(data => {
             dispatch(setCurrentPage(pageNumber))
             dispatch(setUsers(data.items))
             dispatch(toggleIsFetching(false))
@@ -112,7 +112,7 @@ export const clickPageThunk = (pageNumber, pageSize) => {
 export const unfollowThunk = (userId) => {
     return (dispatch) => {
         dispatch(toggleIsFollowingProgress(true, userId))
-        UserApi.unfollow(userId).then(response => {
+        UserAPI.unfollow(userId).then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(unfollowSuccess(userId))
             }
@@ -123,7 +123,7 @@ export const unfollowThunk = (userId) => {
 export const followThunk = (userId) => {
     return (dispatch) => {
         dispatch(toggleIsFollowingProgress(true, userId))
-        UserApi.follow(userId).then(response => {
+        UserAPI.follow(userId).then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(followSuccess(userId))
             }
