@@ -1,31 +1,22 @@
 import {connect} from "react-redux";
 import {
-    follow,
-    setCurrentPage,
-    setUsers,
-    setUsersTotalCount,
-    toggleIsFollowingProgress,
-    unfollow,
+    clickPageThunk,
+    followSuccess, unfollowThunk, getUsersThunk,
+    unfollowSuccess, followThunk,
 } from "../Redux/users-reducer";
 import React from "react";
 import Users from "./users";
 import Preloader from "../common/preloader/preloader";
-import {UserApi} from "../Api/api";
+
 
 class UsersApiContainer extends React.Component {
 
     componentDidMount() {
-        UserApi.getUser(this.props.currentPage, this.props.pageSize).then(data => {
-            this.props.setUsers(data.items)
-            this.props.setUsersTotalCount(data.totalCount)
-        })
+        this.props.getUsersThunk(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber);
-        UserApi.getUserClick(pageNumber, this.props.pageSize).then(data => {
-            this.props.setUsers(data.items)
-        })
+        this.props.clickPageThunk(pageNumber, this.props.pageSize, this.props.toggleIsFetching)
     }
 
     render() {
@@ -48,12 +39,12 @@ let mapStateToProps = (state) => {
     }
 }
 const UsersContainer = connect(mapStateToProps, {
-    unfollow,
-    follow,
-    setUsers,
-    setCurrentPage,
-    setUsersTotalCount,
-    toggleIsFollowingProgress,
+    unfollowSuccess,
+    followSuccess,
+    getUsersThunk,
+    clickPageThunk,
+    unfollowThunk,
+    followThunk,
 })(UsersApiContainer);
 
 export default UsersContainer;
