@@ -1,5 +1,3 @@
-import {UserAPI} from "../Api/userAPI";
-import {setUsers, setUsersTotalCount} from "./users-reducer";
 import {profileAPI} from "../Api/profileAPI";
 
 const ADD_POST = 'ADD-POST'

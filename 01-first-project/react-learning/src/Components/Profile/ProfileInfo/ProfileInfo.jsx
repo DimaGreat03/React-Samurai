@@ -3,11 +3,11 @@ import Preloader from "../../common/preloader/preloader";
 import ars from "../../assets/image/ars.jpeg"
 
 
+
 const ProfileInfo = (props) => {
 
-    if (!props.profile) {
-        return <Preloader/>
-    }
+    if (!props.profile) return <Preloader/>
+
 
     return (
         <div className={s.info}>
