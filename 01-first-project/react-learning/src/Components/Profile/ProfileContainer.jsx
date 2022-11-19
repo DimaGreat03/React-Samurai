@@ -1,9 +1,9 @@
 import React from "react";
 import Profile from "./Profile";
-import axios from "axios";
 import {connect} from "react-redux";
 import {getUserProfileThunk, setUserProfile} from "../Redux/profile-reducer";
-import {Navigate, useParams} from "react-router-dom";
+import {withAuthNavigate} from "../hoc/withAuthNavigate";
+import {useParams} from "react-router-dom";
 
 class ProfileApi extends React.Component {
 
@@ -14,24 +14,20 @@ class ProfileApi extends React.Component {
     }
 
     render () {
-        if (!this.props.isAuth) return <Navigate to={"/login"} />
-        return (
-            <Profile {...this.props}/>
-        )
+        return <Profile {...this.props}/>
     }
+}
+
+let AuthNavigateComponent = withAuthNavigate(ProfileApi)
+
+
+const WithRouter = (props) => {
+    return <AuthNavigateComponent {...props} param={useParams()}/>
 }
 
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
-    isAuth: state.auth.isAuth,
 })
-
-
-const WithRouter = (props) => {
-    return <ProfileApi {...props} param={useParams()}/>
-}
-
-
 
 const ProfileContainer = connect (mapStateToProps, {setUserProfile, getUserProfileThunk,}) (WithRouter)
 

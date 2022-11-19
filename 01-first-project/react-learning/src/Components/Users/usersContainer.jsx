@@ -7,6 +7,7 @@ import {
 import React from "react";
 import Users from "./users";
 import Preloader from "../common/preloader/preloader";
+import {withAuthNavigate} from "../hoc/withAuthNavigate";
 
 
 class UsersApiContainer extends React.Component {
@@ -27,17 +28,17 @@ class UsersApiContainer extends React.Component {
     }
 }
 
+let AuthNavigateComponent = withAuthNavigate(UsersApiContainer)
 
-let mapStateToProps = (state) => {
-    return {
+let mapStateToProps = (state) => ({
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         followingIsProgress: state.usersPage.followingIsProgress,
-    }
-}
+})
+
 const UsersContainer = connect(mapStateToProps, {
     unfollowSuccess,
     followSuccess,
@@ -45,6 +46,6 @@ const UsersContainer = connect(mapStateToProps, {
     clickPageThunk,
     unfollowThunk,
     followThunk,
-})(UsersApiContainer);
+})(AuthNavigateComponent);
 
 export default UsersContainer;
