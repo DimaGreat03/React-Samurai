@@ -8,6 +8,7 @@ import React from "react";
 import Users from "./users";
 import Preloader from "../common/preloader/preloader";
 import {withAuthNavigate} from "../hoc/withAuthNavigate";
+import {compose} from "redux";
 
 
 class UsersApiContainer extends React.Component {
@@ -28,24 +29,20 @@ class UsersApiContainer extends React.Component {
     }
 }
 
-let AuthNavigateComponent = withAuthNavigate(UsersApiContainer)
 
 let mapStateToProps = (state) => ({
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingIsProgress: state.usersPage.followingIsProgress,
+    users: state.usersPage.users,
+    pageSize: state.usersPage.pageSize,
+    totalUsersCount: state.usersPage.totalUsersCount,
+    currentPage: state.usersPage.currentPage,
+    isFetching: state.usersPage.isFetching,
+    followingIsProgress: state.usersPage.followingIsProgress,
 })
 
-const UsersContainer = connect(mapStateToProps, {
-    unfollowSuccess,
-    followSuccess,
-    getUsersThunk,
-    clickPageThunk,
-    unfollowThunk,
-    followThunk,
-})(AuthNavigateComponent);
+export default compose(
+    connect(mapStateToProps, {
+        unfollowSuccess, followSuccess, getUsersThunk, clickPageThunk, unfollowThunk, followThunk
+    }),
+    withAuthNavigate
+)(UsersApiContainer)
 
-export default UsersContainer;
