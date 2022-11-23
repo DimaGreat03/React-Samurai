@@ -1,6 +1,7 @@
 import s from "./ProfileInfo.module.css"
 import Preloader from "../../common/preloader/preloader";
 import ars from "../../assets/image/ars.jpeg"
+import ProfileStatus from "./ProfileStatus.js"
 
 
 
@@ -17,6 +18,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.ava}>
                 <img src={props.profile.photos.large == null? ars : props.profile.photos.large  }/> {props.profile.fullName}
+                <ProfileStatus status={"Hello Kek"}/>
             </div>
             <div className={s.data}> <b>Чем я владею:</b>  <li>{props.profile.lookingForAJobDescription}</li></div>
         </div>
