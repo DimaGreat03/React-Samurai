@@ -18,7 +18,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.ava}>
                 <img src={props.profile.photos.large == null? ars : props.profile.photos.large  }/> {props.profile.fullName}
-                <ProfileStatus status={"Hello Kek"}/>
+                <ProfileStatus {...props}/>
             </div>
             <div className={s.data}> <b>Чем я владею:</b>  <li>{props.profile.lookingForAJobDescription}</li></div>
         </div>
