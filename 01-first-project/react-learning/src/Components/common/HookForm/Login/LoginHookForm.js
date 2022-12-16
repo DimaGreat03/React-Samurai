@@ -40,7 +40,7 @@ const LoginFormHook = () => {
                 </div>
             </div>
             <div>
-                <input type={"checkbox"} {...register('remember me')} /> remember me
+                <input type={"checkbox"} {...register('rememberMe')} /> remember me
             </div>
             <button disabled={!isValid} className={s.button}>Send</button>
         </form>

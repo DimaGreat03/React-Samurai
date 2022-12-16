@@ -1,35 +1,18 @@
 import React from "react";
 import s from "./MyPosts.module.css"
 import Post from "./Post/post";
+import HookForm from "../../common/HookForm/HookForm";
 
 
 const MyPosts = (props) => {
 
     let postElements = props.state.posts.map(m => <Post message={m.message} likes={m.scoreLikes}/>)
-
-    let typingText = React.createRef()
-    let addPost = () => {
-        props.addPost()
-    };
-    let onPostChange = () => {
-        let text = typingText.current.value;
-        props.updateNewPostText(text)
-    }
-
-
     return (
         <div>
             <div>
                 MY POSTS
                 <div>
-                    <textarea
-                        onChange={onPostChange}
-                        ref={typingText}
-                        value={props.state.newPostText}/>
-                    <div>
-                        <button onClick={addPost}>add post</button>
-                        <button>remove</button>
-                    </div>
+                    <HookForm addNewText={props.addNewPost}/>
                 </div>
             </div>
             <div className={s.posts}>

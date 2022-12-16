@@ -1,5 +1,5 @@
 
-import LoginFormHook from "../common/Login/Login";
+import LoginFormHook from "../common/HookForm/Login/LoginHookForm";
 
 
 const Login = () => {

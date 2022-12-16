@@ -1,5 +1,4 @@
 const SEND_MESSAGE = 'SEND-MESSAGE'
-const UPDATE_MESSAGE = 'UPDATE-MESSAGE'
 
 let initialState = {
         arrayNames: [
@@ -14,7 +13,6 @@ let initialState = {
             {id: 3, message: <li>'Just Eranga'</li>},
             {id: 4, message: <li>'I-am Budik'</li>}
         ],
-        newMessageText:  'click me'
 }
 
 
@@ -22,25 +20,16 @@ let initialState = {
 const messageReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE:
-            let body = state.newMessageText;
             return {
                 ...state,
-                newMessageText: '',
-                arrayMessages: [...state.arrayMessages, {id: 6, message: body}]
+                arrayMessages: [...state.arrayMessages, {id: 5, message: action.newText}],
             }
-        case UPDATE_MESSAGE:
-             return {
-                 ...state,
-                 newMessageText: action.newText
-             }
         default:
             return state
     }
 }
 
 
-export const sendMessageActionCreator = () => ({type: 'SEND-MESSAGE'})
-export const updateMessageActionCreator = (text) => ({type: 'UPDATE-MESSAGE', newText: text})
-
+export const sendMessage = (newText) => ({type: 'SEND-MESSAGE', newText})
 
 export default messageReducer
