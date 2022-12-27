@@ -32,7 +32,7 @@ header {
     float: right;
     margin: 15px;
     font-family: -apple-system;
-    font-size: 25px;
+    font-size:25px;
     color: #ffffff;
     border-style: dotted;
     background-color: #000000;
@@ -47,4 +47,17 @@ header {
     color: #ffffff;
     background-color: #0029f8;
     border-radius: 10px;
+}
+
+.button {
+    font-size: 27px;
+    float: right;
+    border-radius: 25px;
+    margin-top: 15px;
+    color: #000000;
+    font-family: -apple-system;
+    border-style: solid;
+    background-color: #ffffff;
+
+
 }

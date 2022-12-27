@@ -9,7 +9,13 @@ let instance = axios.create({
 export const headerAPI = {
     authMe() {
         return instance.get(`auth/me`)
-    }
+    },
+    login(email, password, rememberMe) {
+        return instance.post(`auth/login`, {email, password, rememberMe})
+    },
+    logOut() {
+        return instance.delete(`auth/login`)
+    },
 }
 
 

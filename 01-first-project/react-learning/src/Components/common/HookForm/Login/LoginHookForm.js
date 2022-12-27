@@ -2,7 +2,7 @@ import {useForm} from "react-hook-form";
 import s from "./Login.module.css"
 
 
-const LoginFormHook = () => {
+const LoginFormHook = (props) => {
     const {
         register,
         reset,
@@ -11,21 +11,21 @@ const LoginFormHook = () => {
     } = useForm({mode: "onBlur"})
 
     const onSubmit = (formData) => {
-        console.log(formData)
+        props.loginThunk(formData.email, formData.password, formData.rememberMe)
         reset()
     }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
             <div className={s.login}>
-                <input placeholder={'login'} {...register('login', {
+                <input placeholder={'login'} {...register('email', {
                     required: 'you need typing here',
                     minLength: {
                         value: 5,
                         message: 'не меньше 5 знаков в поле вводи блеадь!'
                     }
                 })}/>
-                {errors?.login && <p>{errors?.login?.message}</p>}
+                {errors?.email && <p>{errors?.email?.message}</p>}
             </div>
             <div className={s.password}>
                 <input placeholder={'password'} {...register('password', {

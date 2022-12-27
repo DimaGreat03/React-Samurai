@@ -1,16 +1,14 @@
-
 import LoginFormHook from "../common/HookForm/Login/LoginHookForm";
 
 
-const Login = () => {
+const Login = (props) => {
     return (
         <div>
             <h1>Login</h1>
-           <LoginFormHook/>
+            <LoginFormHook {...props}/>
         </div>
     )
 }
-
 
 
 export default Login
