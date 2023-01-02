@@ -1,25 +1,39 @@
 
-
-.login {
-    line-height: 0px;
-    color: #c50000;
+.Login {
+    margin-top: -10px;
+    margin-bottom: 15px;
+    color: #f60000;
 }
 
-.password {
-    line-height: 0px;
-    color: #c50000;
+.Password {
+    margin-top: -10px;
+    margin-bottom: 15px;
+    color: #f60000;
 }
 
 input {
     border-radius: 4px;
     border: 1px solid white;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-size: 14px;
 }
 
 .button {
     font-size: 20px;
+    margin-top: 10px;
+}
+
+.loginForm {
+    border: red 1px solid;
+}
+
+.passwordForm {
+    border: red 1px solid;
+}
+
+.checkAuth {
+    color: #f60000;
 }
 
 

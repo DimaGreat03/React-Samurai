@@ -1,5 +1,6 @@
 import {useForm} from "react-hook-form";
 import s from "./Login.module.css"
+import {connect} from "react-redux";
 
 
 const LoginFormHook = (props) => {
@@ -17,18 +18,20 @@ const LoginFormHook = (props) => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
-            <div className={s.login}>
-                <input placeholder={'login'} {...register('email', {
+            <div>
+                <input className={errors.email && s.loginForm} placeholder={'login'} {...register('email', {
                     required: 'you need typing here',
                     minLength: {
                         value: 5,
                         message: 'не меньше 5 знаков в поле вводи блеадь!'
                     }
                 })}/>
-                {errors?.email && <p>{errors?.email?.message}</p>}
+                {errors?.email && <p className={s.Login}>{errors?.email?.message}</p>}
             </div>
-            <div className={s.password}>
-                <input placeholder={'password'} {...register('password', {
+
+
+            <div>
+                <input className={errors.password && s.passwordForm} placeholder={'password'} {...register('password', {
                     required: 'you need typing here',
                     minLength: {
                         value: 5,
@@ -36,15 +39,29 @@ const LoginFormHook = (props) => {
                     }
                 })}/>
                 <div>
-                    {errors?.password && <p>{errors?.password?.message}</p>}
+                    {errors?.password && <p className={s.Password}>{errors?.password?.message}</p>}
                 </div>
             </div>
+
+
             <div>
                 <input type={"checkbox"} {...register('rememberMe')} /> remember me
             </div>
-            <button disabled={!isValid} className={s.button}>Send</button>
+
+            {props.checkAuth? <div className={s.checkAuth}> {props.error} </div> : null}
+
+            <div>
+                <button disabled={!isValid} className={s.button}>Send</button>
+            </div>
         </form>
     )
 }
 
-export default LoginFormHook
+
+let mapStateToProps = (state) => ({
+    checkAuth: state.auth.checkAuth,
+    error: state.auth.error
+})
+
+export default connect(mapStateToProps, null)(LoginFormHook)
+

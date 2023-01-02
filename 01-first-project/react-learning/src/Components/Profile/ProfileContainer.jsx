@@ -9,7 +9,7 @@ import {compose} from "redux";
 class ProfileApi extends React.Component {
     componentDidMount() {
         let userId = this.props.param.userId
-        if (userId == null) {userId = 26593};
+        if (userId == null) userId = this.props.id;
         this.props.getUserProfileThunk(userId)
         this.props.getStatusThunk(userId)
     }
@@ -21,6 +21,7 @@ class ProfileApi extends React.Component {
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
+    id: state.auth.id,
 })
 
 export default compose(

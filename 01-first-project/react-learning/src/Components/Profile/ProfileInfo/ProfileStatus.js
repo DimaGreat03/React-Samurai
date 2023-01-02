@@ -23,21 +23,29 @@ class ProfileStatus extends React.Component {
 
 
     render() {
-        return <div>
-            {!this.state.editMode &&
+        if (this.props.param.userId === this.props.userId) {
+            return <div>
+                {!this.state.editMode &&
+                    <div>
+                        <span onDoubleClick={this.activateEditMode}>{this.props.status || 'no status'}</span>
+                    </div>
+                }
+                {this.state.editMode &&
+                    <div>
+                        <input autoFocus
+                               onBlur={this.deactivateEditMode}
+                               value={this.state.status}
+                               onChange={this.onStatusChange}/>
+                    </div>
+                }
+            </div>
+        } else {
+            return (
                 <div>
-                    <span onDoubleClick={this.activateEditMode}>{this.props.status || 'no status'}</span>
+                    <span>{this.props.status}</span>
                 </div>
-            }
-            {this.state.editMode &&
-                <div>
-                    <input autoFocus
-                           onBlur={this.deactivateEditMode}
-                           value={this.state.status}
-                           onChange={this.onStatusChange}/>
-                </div>
-            }
-        </div>
+            )
+        }
     }
 }
 
