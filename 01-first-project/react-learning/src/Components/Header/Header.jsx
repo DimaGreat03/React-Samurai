@@ -25,7 +25,7 @@ const Header = (props) => {
                         <div className={s.login}>Log in</div>
                     </NavLink>}
             </div>
-            <div> {props.isAuth ? <button onClick={props.logOutThunk && props.authMeThunk}
+            <div> {props.isAuth ? <button onClick={props.logOutThunk}
                                           className={s.button}>Exit</button> : null} </div>
         </header>
     )
