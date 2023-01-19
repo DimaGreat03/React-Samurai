@@ -5,8 +5,12 @@ import {compose} from "redux";
 import {NavigateProfile} from "../hoc/withNavigateProfile";
 
 
+let mapStateToProps = (state) => ({
+    checkAuth: state.auth.checkAuth,
+    error: state.auth.error
+})
 
 export default compose(
-    connect(null, {loginThunk}),
+    connect(mapStateToProps, {loginThunk}),
     NavigateProfile
 )(Login)

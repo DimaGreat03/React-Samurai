@@ -9,7 +9,7 @@ let mapStateToPropsForNavigate = (state) => ({
 
 export const NavigateProfile = (Component) => {
     let withNavigateProfile = (props) => {
-        if (props.isAuth) return <Navigate to={"/loading"}/>
+        if (props.isAuth) return <Navigate to={"/profile"}/>
         return (
             <Component {...props}/>
         )

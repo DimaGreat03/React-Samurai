@@ -13,7 +13,7 @@ const appReducer = (state = initialState, action) => {
         case INITIAL_SUCCESS:
             return {
                 ...state,
-                initial: true,
+                initial: action.boolean,
             }
         default:
             return state
@@ -21,13 +21,13 @@ const appReducer = (state = initialState, action) => {
 }
 
 
-export const setInitialSuccess = () => ({type: INITIAL_SUCCESS})
+export const setInitialSuccess = (boolean) => ({type: INITIAL_SUCCESS, boolean})
 
 
 export const initialAppThunk = () => (dispatch) => {
     let promise = dispatch(authMeThunk())
     Promise.all([promise]).then(() => {
-        dispatch(setInitialSuccess())
+        dispatch(setInitialSuccess(true))
     })
 }
 

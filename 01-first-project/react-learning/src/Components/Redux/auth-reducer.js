@@ -1,4 +1,5 @@
 import {headerAPI} from "../Api/headerAPI";
+import {setInitialSuccess} from "./app-reducer";
 
 const SET_USER_DATA = 'SET-USER-DATA'
 const AUTH_ON = 'AUTH-ON'
@@ -12,7 +13,6 @@ let initialState = {
     isAuth: null,
     checkAuth: null,
     error: '',
-    loading: null,
 }
 
 
@@ -41,7 +41,7 @@ const authReducer = (state = initialState, action) => {
 }
 
 
-export const setUserData = (id, email, login, isAuth, loading) => ({type: SET_USER_DATA, payload: {id, email, login, isAuth, loading}})
+export const setUserData = (id, email, login, isAuth,) => ({type: SET_USER_DATA, payload: {id, email, login, isAuth,}})
 export const authOn = () => ({type: AUTH_ON})
 export const notAuth = (boolean, errorMessage) => ({type: NOT_AUTH, boolean, errorMessage})
 
@@ -51,7 +51,7 @@ export const authMeThunk = () => (dispatch) => {
         .then(response => {
             if (response.data.resultCode === 0) {
                 let {id, email, login} = response.data.data
-                dispatch(setUserData(id, email, login, true, true))
+                dispatch(setUserData(id, email, login, true,))
             }
         })
 }
@@ -62,6 +62,7 @@ export const loginThunk = (email, password, rememberMe) => {
         headerAPI.login(email, password, rememberMe = true).then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(authOn())
+                dispatch(setInitialSuccess(false))
             } else {
                 let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error'
                 dispatch(notAuth(true, message))

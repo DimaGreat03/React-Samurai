@@ -1,14 +1,23 @@
 import s from "../../Users/users.module.css";
 import React from "react";
 import preloader from "../../assets/image/preloader.gif"
+import {connect} from "react-redux";
+import {initialAppThunk} from "../../Redux/app-reducer";
 
-let Preloader = (props) => {
+class Preloader extends React.Component {
 
-    return <div className={s.loader}>
+    componentDidMount() {
+        this.props.initialAppThunk()
+    }
+
+    render() {
+
+        return <div className={s.loader}>
 
             <img width="150px" src={preloader}/>
 
-    </div>
+        </div>
+    }
 }
 
-export default Preloader;
+export default connect(null, {initialAppThunk,} )(Preloader)

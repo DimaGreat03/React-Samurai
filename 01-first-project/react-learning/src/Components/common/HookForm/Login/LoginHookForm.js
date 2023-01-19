@@ -1,6 +1,5 @@
 import {useForm} from "react-hook-form";
 import s from "./Login.module.css"
-import {connect} from "react-redux";
 
 
 const LoginFormHook = (props) => {
@@ -48,7 +47,7 @@ const LoginFormHook = (props) => {
                 <input type={"checkbox"} {...register('rememberMe')} /> remember me
             </div>
 
-            {props.checkAuth? <div className={s.checkAuth}> {props.error} </div> : null}
+            {props.checkAuth ? <div className={s.checkAuth}> {props.error} </div> : null}
 
             <div>
                 <button disabled={!isValid} className={s.button}>Send</button>
@@ -58,10 +57,5 @@ const LoginFormHook = (props) => {
 }
 
 
-let mapStateToProps = (state) => ({
-    checkAuth: state.auth.checkAuth,
-    error: state.auth.error
-})
-
-export default connect(mapStateToProps, null)(LoginFormHook)
+export default LoginFormHook;
 

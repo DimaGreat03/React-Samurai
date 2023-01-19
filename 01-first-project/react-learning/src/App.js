@@ -10,25 +10,15 @@ import UsersContainer from "./Components/Users/usersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import Login from "./Components/Login/LoginContainer";
-import Loading from "./Components/Login/Loading";
-import {Component} from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {initialAppThunk,} from "./Components/Redux/app-reducer";
 import Preloader from "./Components/common/preloader/preloader";
 
 
-class App extends Component {
+const App = (props) => {
 
-    componentDidMount() {
-        this.props.initialAppThunk()
-    }
-
-
-    render() {
-        if (!this.props.initial) {
-            return <Preloader/>
-        }
+    if (!props.initial) return <Preloader/>
         return (
             <div className="container">
                 <div className="app-wrapper">
@@ -45,13 +35,11 @@ class App extends Component {
                             <Route path="/setting" element={<Setting/>}/>
                             <Route path="/users" element={<UsersContainer/>}/>
                             <Route path="/login" element={<Login/>}/>
-                            <Route path="/loading" element={<Loading/>}/>
                         </Routes>
                     </div>
                 </div>
             </div>
         );
-    }
 }
 
 
