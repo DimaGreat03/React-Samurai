@@ -9,6 +9,14 @@ import Users from "./users";
 import Preloader from "../common/preloader/preloader";
 import {withAuthNavigate} from "../hoc/withAuthNavigate";
 import {compose} from "redux";
+import {
+    getCurrentPage,
+    getFollowingIsProgress,
+    getIsFetching,
+    getPageSize,
+    getTotalUsersCount,
+    getUsers
+} from "../Redux/users-selectors";
 
 
 class UsersApiContainer extends React.Component {
@@ -29,15 +37,15 @@ class UsersApiContainer extends React.Component {
     }
 }
 
-
 let mapStateToProps = (state) => ({
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching,
-    followingIsProgress: state.usersPage.followingIsProgress,
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    followingIsProgress: getFollowingIsProgress(state),
 })
+
 
 export default compose(
     connect(mapStateToProps, {
