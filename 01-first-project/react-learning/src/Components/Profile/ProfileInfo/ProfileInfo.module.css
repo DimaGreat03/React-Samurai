@@ -13,3 +13,16 @@
 .data {
     margin-top: 25px;
 }
+
+.status {
+    color: #d00303;
+    font-size: 25px;
+    font-family: -apple-system;
+    border-style: outset;
+    border-width: 10px;
+    font-weight: bold;
+}
+
+.statusUp {
+    margin-top: 22px;
+}
