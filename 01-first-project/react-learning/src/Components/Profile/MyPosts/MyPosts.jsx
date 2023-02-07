@@ -4,7 +4,7 @@ import Post from "./Post/post";
 import HookForm from "../../common/HookForm/HookForm";
 
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
 
     let postElements = props.state.posts.map(m => <Post message={m.message} likes={m.scoreLikes}/>)
     return (
@@ -20,7 +20,7 @@ const MyPosts = (props) => {
             </div>
         </div>
     )
-}
+});
 
 export default MyPosts
 
