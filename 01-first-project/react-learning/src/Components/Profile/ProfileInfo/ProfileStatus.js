@@ -21,13 +21,12 @@ class ProfileStatus extends React.Component {
         this.setState({status: e.currentTarget.value})
     }
 
-
     render() {
-        if (this.props.param.userId === this.props.userId) {
+        if (this.props.param.userId == this.props.userId) {
             return <div>
                 {!this.state.editMode &&
                     <div>
-                        <span onDoubleClick={this.activateEditMode}>{this.props.status || 'no status'}</span>
+                        <span onDoubleClick={this.activateEditMode}>{this.props.status || 'no sttus'}</span>
                     </div>
                 }
                 {this.state.editMode &&

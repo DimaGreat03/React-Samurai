@@ -1,8 +1,8 @@
 import {connect} from "react-redux";
 import {
     clickPageThunk,
-    followSuccess, unfollowThunk, getUsersThunk,
-    unfollowSuccess, followThunk,
+    unfollowThunk, getUsersThunk,
+    followThunk,
 } from "../Redux/users-reducer";
 import React from "react";
 import Users from "./users";
@@ -22,11 +22,13 @@ import {
 class UsersApiContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsersThunk(this.props.currentPage, this.props.pageSize)
+        const {currentPage, pageSize} = this.props
+        this.props.getUsersThunk(currentPage, pageSize)
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.clickPageThunk(pageNumber, this.props.pageSize)
+        const {pageSize} = this.props
+        this.props.clickPageThunk(pageNumber, pageSize)
     }
 
     render() {
@@ -49,7 +51,7 @@ let mapStateToProps = (state) => ({
 
 export default compose(
     connect(mapStateToProps, {
-        unfollowSuccess, followSuccess, getUsersThunk, clickPageThunk, unfollowThunk, followThunk
+        getUsersThunk, clickPageThunk, unfollowThunk, followThunk
     }),
     withAuthNavigate
 )(UsersApiContainer)

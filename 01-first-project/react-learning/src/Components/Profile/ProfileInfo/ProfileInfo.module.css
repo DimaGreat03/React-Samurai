@@ -15,12 +15,11 @@
 }
 
 .status {
-    color: #d00303;
+    color: #0343cb;
     font-size: 25px;
     font-family: -apple-system;
     border-style: outset;
-    border-width: 10px;
-    font-weight: bold;
+    border-width: 3px;
 }
 
 .statusUp {

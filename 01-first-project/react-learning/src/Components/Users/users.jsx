@@ -1,31 +1,22 @@
-import s from "./users.module.css";
-import userPhoto from "../assets/image/ars.jpeg";
 import React from "react";
-import {NavLink} from "react-router-dom";
-import {UserAPI} from "../Api/userAPI";
+import Paginator from "../common/paginator/Paginator";
+import User from "./user";
 
 
-const Users = (props) => {
-
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i)
-    }
+const Users = ({
+                   totalUsersCount, pageSize, currentPage, onPageChanged,
+                   users, followingIsProgress, followThunk, unfollowThunk
+               }) => {
 
     return <div>
-        <div>
-            {pages.map(p => {
-                return <button className={props.currentPage === p && s.selectedPage}
-                               onClick={() => {
-                                   props.onPageChanged(p)
-                               }}>{p}</button>
-            })}
-
-        </div>
+        <Paginator totalUsersCount={totalUsersCount} pageSize={pageSize}
+                   currentPage={currentPage} onPageChanged={onPageChanged}/>
         {
-            props.users.map(u => <div key={u.id}>
+            users.map(u => <User user={u} key={u.id} followingIsProgress={followingIsProgress}
+                                 followThunk={followThunk} unfollowThunk={unfollowThunk}/>)
+        }
+        {/*{
+            users.map(u => <div key={u.id}>
                 <div>
 
                     <div>
@@ -52,12 +43,12 @@ const Users = (props) => {
                         <div>{u.status}</div>
                     </span>
                     <span>
-                      {/*  <div>{u.location.city}</div>
-                        <div>{u.location.country}</div>*/}
+                        <div>{u.location.city}</div>
+                        <div>{u.location.country}</div>
                     </span>
                 </span>
             </div>)
-        }
+        }*/}
     </div>
 }
 

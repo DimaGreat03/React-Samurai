@@ -24,11 +24,9 @@ const appReducer = (state = initialState, action) => {
 export const setInitialSuccess = (boolean) => ({type: INITIAL_SUCCESS, boolean})
 
 
-export const initialAppThunk = () => (dispatch) => {
-    let promise = dispatch(authMeThunk())
-    Promise.all([promise]).then(() => {
-        dispatch(setInitialSuccess(true))
-    })
+export const initialAppThunk = () => async (dispatch) => {
+    await dispatch(authMeThunk())
+    dispatch(setInitialSuccess(true))
 }
 
 

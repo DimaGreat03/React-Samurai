@@ -2,7 +2,7 @@ import {useForm} from "react-hook-form";
 import s from "./Login.module.css"
 
 
-const LoginFormHook = (props) => {
+const LoginFormHook = ({loginThunk, checkAuth, error}) => {
     const {
         register,
         reset,
@@ -11,7 +11,7 @@ const LoginFormHook = (props) => {
     } = useForm({mode: "onBlur"})
 
     const onSubmit = (formData) => {
-        props.loginThunk(formData.email, formData.password, formData.rememberMe)
+        loginThunk(formData.email, formData.password, formData.rememberMe)
         reset()
     }
 
@@ -47,7 +47,7 @@ const LoginFormHook = (props) => {
                 <input type={"checkbox"} {...register('rememberMe')} /> remember me
             </div>
 
-            {props.checkAuth ? <div className={s.checkAuth}> {props.error} </div> : null}
+            {checkAuth ? <div className={s.checkAuth}> {error} </div> : null}
 
             <div>
                 <button disabled={!isValid} className={s.button}>Send</button>

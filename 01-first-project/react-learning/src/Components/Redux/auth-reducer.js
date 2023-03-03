@@ -1,9 +1,9 @@
 import {headerAPI} from "../Api/headerAPI";
 import {setInitialSuccess} from "./app-reducer";
 
-const SET_USER_DATA = 'SET-USER-DATA'
-const AUTH_ON = 'AUTH-ON'
-const NOT_AUTH = 'NOT-AUTH'
+const SET_USER_DATA = 'samurai-network/auth/SET-USER-DATA'
+const AUTH_ON = 'samurai-network/auth/AUTH-ON'
+const NOT_AUTH = 'samurai-network/auth/NOT-AUTH'
 
 
 let initialState = {
@@ -46,38 +46,30 @@ export const authOn = () => ({type: AUTH_ON})
 export const notAuth = (boolean, errorMessage) => ({type: NOT_AUTH, boolean, errorMessage})
 
 
-export const authMeThunk = () => (dispatch) => {
-    return headerAPI.authMe()
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                let {id, email, login} = response.data.data
-                dispatch(setUserData(id, email, login, true,))
-            }
-        })
-}
-
-
-export const loginThunk = (email, password, rememberMe) => {
-    return (dispatch) => {
-        headerAPI.login(email, password, rememberMe = true).then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(authOn())
-                dispatch(setInitialSuccess(false))
-            } else {
-                let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error'
-                dispatch(notAuth(true, message))
-            }
-        })
+export const authMeThunk = () => async (dispatch) => {
+    let response = await headerAPI.authMe()
+    if (response.data.resultCode === 0) {
+        let {id, email, login} = response.data.data
+        dispatch(setUserData(id, email, login, true,))
     }
 }
 
-export const logOutThunk = () => {
-    return (dispatch) => {
-        headerAPI.logOut().then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setUserData(null, null, null, false))
-            }
-        })
+
+export const loginThunk = (email, password, rememberMe) => async (dispatch) => {
+    let response = await headerAPI.login(email, password, rememberMe = true)
+    if (response.data.resultCode === 0) {
+        dispatch(authOn())
+        dispatch(setInitialSuccess(false))
+    } else {
+        let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error'
+        dispatch(notAuth(true, message))
+    }
+}
+
+export const logOutThunk = () => async (dispatch) => {
+    let response = await headerAPI.logOut()
+    if (response.data.resultCode === 0) {
+        dispatch(setUserData(null, null, null, false))
     }
 }
 

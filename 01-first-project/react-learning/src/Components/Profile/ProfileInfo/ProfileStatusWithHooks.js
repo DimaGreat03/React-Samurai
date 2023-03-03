@@ -2,15 +2,15 @@ import React, {useEffect, useState} from "react";
 import s from "./ProfileInfo.module.css"
 
 
-const ProfileStatusWithHooks = (props) => {
+const ProfileStatusWithHooks = ({status, updateStatusThunk, param, userId,}) => {
 
 
     let [editMode, setEditMode] = useState(false)
-    let [status, setStatus] = useState(props.status)
+    let [userStatus, setStatus] = useState(status)
 
     useEffect(() => {
-        setStatus(props.status)
-    }, [props.status])
+        setStatus(status)
+    }, [status])
 
     let activateMode = () => {
         setEditMode(true)
@@ -18,25 +18,30 @@ const ProfileStatusWithHooks = (props) => {
 
     let deactivateMode = () => {
         setEditMode(false)
-        props.updateStatusThunk(status)
+        updateStatusThunk(userStatus)
     }
 
     let onStatusChange = (e) => {
         setStatus(e.currentTarget.value)
     }
-    return <div>
-        {!editMode &&
-            <div className={s.statusUp}>
-                <span onDoubleClick={activateMode} className={s.status}>{props.status || 'no status'}</span>
-            </div>
-        }
-        {editMode &&
-            <div>
-                <input autoFocus onBlur={deactivateMode} onChange={onStatusChange} value={status}/>
-            </div>
-        }
-    </div>
+    if (param.userId === userId) {
+        return <div>
+            {!editMode &&
+                <div className={s.statusUp}>
+                    <span onDoubleClick={activateMode} className={s.status}>{status || 'no status'}</span>
+                </div>
+            }
+            {editMode &&
+                <div>
+                    <input autoFocus onBlur={deactivateMode} onChange={onStatusChange} value={userStatus}/>
+                </div>
+            }
+        </div>
+    } else {
+        return <div>
+            {status || 'no status'}
+        </div>
+    }
 }
-
 
 export default ProfileStatusWithHooks;
